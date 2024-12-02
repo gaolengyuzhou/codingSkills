@@ -26,18 +26,17 @@ queue = [(0, 0, 0)]
 def shortest_path_iterative():
     while queue:
         i, j, steps = queue.pop(0)
-        print(f"起始位置:{i+1},{j+1}")
 
         if (i, j) == (m - 1, n - 1):
             # 找到目标位置，构建最短路线
-            path = []
+            lujing = []
             current_pos = (i, j)
             while current_pos!= (0, 0):
-                path.append(current_pos)
+                lujing.append(current_pos)
                 current_pos = visited[current_pos][1]
-            path.append((0, 0))
-            path.reverse()
-            return steps, path
+            lujing.append((0, 0))
+            lujing.reverse()
+            return steps, lujing
 
         for path in range(4):
             new_i, new_j = yidong(path, i, j)
@@ -45,8 +44,10 @@ def shortest_path_iterative():
             if 0 <= new_i < m and 0 <= new_j < n and (new_i, new_j) not in visited:
                 visited[(new_i, new_j)] = (steps + 1, (i, j))
                 queue.append((new_i, new_j, steps + 1))
-                print(f"可以到达位置:{new_i+1},{new_j+1},花费{steps + 1}步")
-                print(visited)
+            elif (new_i, new_j) in visited:
+                new_steps = steps + 1
+                if new_steps < visited[(new_i, new_j)][0]:
+                    visited[(new_i, new_j)] = (new_steps, (i, j))
 
 
     return -1, []
@@ -58,4 +59,3 @@ if shortest_steps == -1:
 else:
     print(f"最短步数：{shortest_steps}")
     print("最短路线：", shortest_path)
-
