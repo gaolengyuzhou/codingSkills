@@ -20,7 +20,7 @@ exit 0
 cd /home/xitong/Yolo-Deepsort/Yolov5_DeepSort_Pytorch/
 /home/xitong/Yolo-Deepsort/yolo36/bin/python /home/xitong/Yolo-Deepsort/moter_test.py
 ```
-![sh](./videos/sh.png)
+![sh](./img/sh.png)
 
 ### c.打开权限
 ```
@@ -38,7 +38,7 @@ ExecStart=/home/xitong/run_python.sh
 [Install]
 WantedBy=default.target
 ```
-![sh](./videos/service.png)
+![sh](./img/service.png)
 ### a.打开权限
 ```
 sudo chmod 777 run_python.service
@@ -52,8 +52,8 @@ sudo mv run_python.service /etc/systemd/system
 systemctl daemon-reload
 systemctl enable run_python.service
 ```
-![sh](./videos/load.png)
-![sh](./videos/status.png)
+![sh](./img/load.png)
+![sh](./img/status.png)
 ## 3、检验
 ```
 systemctl start rc-local.service  #启动服务
