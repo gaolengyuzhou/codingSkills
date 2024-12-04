@@ -26,7 +26,7 @@ sudo chmod 777 run_python.sh
 ```
 ## 2、创建run_python.service
 ```
-/etc/systemd/system[Unit]
+[Unit]
 Description=Run a Custom Script at Startup
 After=default.target
 
@@ -58,6 +58,9 @@ systemctl daemon-reload # 重新加载自启服务
 ```
 ```
 systemd-analyze plot > boot.svg
+```
+```
+scp -r xitong@192.168.0.142:/home/xitong/boot.svg .
 ```
 # 二、sudo 无密码
 >sudo visudo
@@ -105,5 +108,5 @@ sudo chmod 777 /etc/rc.local
 # sudo systemctl stop todeskd.service # 关闭todesk
 ```
 
-<video src="/videos/your-video-filename.mp4" autoplay="true" controls="controls" width="800" height="600">
+<video src="/videos/Nano.mp4" autoplay="true" controls="controls" width="800" height="600">
 </video>
